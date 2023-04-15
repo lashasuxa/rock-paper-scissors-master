@@ -16,8 +16,15 @@ const winnerText = document.querySelector(".winnerText");
 const scoreTracker = document.querySelector(".scoreTracker");
 
 againBtn.addEventListener("click", () => {
-  yourChoice.innerHTML = ``;
-  winnerText.innerHTML = ``;
+  const userChoice = document.querySelector(".your-choice .choice");
+  const aiChoice = document.querySelector(".ai-choice ");
+
+  userChoice.innerHTML = "";
+  aiChoice.innerHTML = `<div class="ai-choice">
+  <div class="transparentCircle"></div>
+  <p class="aiPick">THE HOUSE PICKED</p>
+</div>`;
+  winnerText.innerHTML = "";
   gameDiv.style.display = "block";
   resultDiv.style.display = "none";
 });
@@ -107,10 +114,13 @@ function generateRandomChoice() {
 
   // Create a new image element and set its source to the chosen image
   const choiceImg = document.createElement("img");
+  const paragraph = document.createElement("p");
+  paragraph.innerText = "THE HOUSE PICKED";
   choiceImg.src = imageSources[randomIndex];
 
   // Append the image element to the div element
   aiChoice.appendChild(choiceImg);
+  aiChoice.appendChild(paragraph);
 
   // Get the user's choice from the DOM
   const userChoice = document.querySelector(".your-choice .choice");
@@ -122,8 +132,10 @@ function generateRandomChoice() {
       scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) - 1;
     } else if (aiChoice.classList.contains("rock")) {
       winnerText.innerText = "You win!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) + 1;
     } else {
       winnerText.innerText = "It's a tie!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML);
     }
   } else if (yourChoice.querySelector(".choice").classList.contains("rock")) {
     if (aiChoice.classList.contains("paper")) {
