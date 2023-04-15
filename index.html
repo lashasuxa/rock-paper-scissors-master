@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div class="top">
+      <img class="logo" src="./images/logo.svg" alt="logo" />
+      <div class="scoreRect">
+        <span>SCORE</span>
+        <p class="scoreTracker">12</p>
+      </div>
+    </div>
+    <main class="game">
+      <button class="game-btn">
+        <div class="choice paper">
+          <img class="image-11" src="./images/icon-paper.svg" alt="paper" />
+        </div>
+      </button>
+      <button class="game-btn">
+        <div class="choice scissors">
+          <img src="./images/icon-scissors.svg" alt="scissors" />
+        </div>
+      </button>
+      <button class="game-btn">
+        <div class="choice rock">
+          <img src="./images/icon-rock.svg" alt="rock" />
+        </div>
+      </button>
+    </main>
+    <div class="result">
+      <div class="resultChoices">
+        <div class="your-choice">
+          <!-- <button class="game-btn ">
+            <div class="choice paper">
+              <img src="./images/icon-paper.svg" alt="paper" />
+            </div>
+          </button>
+          <p class="yourPick">YOUR PICKED</p> -->
+        </div>
+        <div class="ai-choice">
+          <div class="transparentCircle"></div>
+          <p class="aiPick">THE HOUSE PICKED</p>
+        </div>
+      </div>
+
+      <div class="winnerText"></div>
+      <button class="again">PLAY AGAIN</button>
+    </div>
+    <button class="rules">RULES</button>
+
+    <div class="modal">
+      <div class="modal__container">
+        <h2 class="modal__heading">RULES</h2>
+
+        <img
+          src="./images/image-rules.svg"
+          alt="Rules Image"
+          class="rules-img"
+        />
+        <br />
+        <button class="close-btn">
+          <img src="./images/icon-close.svg" alt="Close Button" />
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

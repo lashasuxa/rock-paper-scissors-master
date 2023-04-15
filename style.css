@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --Background: radial-gradient(
+    134.34% 134.34% at 50% 0%,
+    #1f3757 0%,
+    #131537 100%
+  );
+  --SofRed: hsl(345, 95%, 68%);
+  --White: hsl(0, 0%, 100%);
+  --DarkDesaturatedBlue: hsl(236, 21%, 26%);
+  --VeryDarkBlue: hsl(235, 16%, 14%);
+  --MostlyBlackBlue: hsl(234, 17%, 12%);
+}
+
+body {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background: radial-gradient(
+    134.34% 134.34% at 50% 0%,
+    #1f3757 0%,
+    #131537 100%
+  );
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 83px;
+  height: 48px;
+}
+
+.top {
+  width: 311px;
+  height: 96px;
+  border: 3px solid rgba(255, 255, 255, 0.289199);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px 12px 23px;
+  margin-bottom: 105px;
+  margin-top: 50px;
+}
+.scoreRect {
+  width: 80px;
+  height: 72px;
+  background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+}
+.scoreRect span {
+  color: #2a45c2;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 1.5625px;
+  padding-top: 10px;
+}
+.scoreRect p {
+  font-weight: 700;
+  font-size: 40px;
+  color: #565468;
+}
+.game {
+  text-align: center;
+  gap: 10px;
+}
+
+/* experiment starts here */
+
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url(./images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.game-btn {
+  margin: 10px;
+  padding: 0;
+}
+
+.choice {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.choice img {
+  width: 60px;
+}
+.game-btn {
+  border-radius: 50%;
+}
+.paper {
+  border: 15px solid #4664f4;
+}
+
+.scissors {
+  border: 15px solid #eb9f0e;
+}
+
+.rock {
+  border: 15px solid #db2e4d;
+}
+/* experiment ends here */
+
+.rules {
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  width: 128px;
+  height: 40px;
+  text-align: center;
+  position: absolute;
+  bottom: 25px;
+}
+
+.choice {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.game-btn1 {
+  position: relative;
+  left: 70px;
+}
+.transparentCircle {
+  width: 110px;
+  height: 110px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  margin-bottom: 28px;
+}
+.result {
+  position: absolute;
+  top: 251px;
+  left: 13px;
+  /* background-color: #3b4262; */
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+.resultChoices {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 100vw; */
+}
+.your-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ai-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.resultChoices p {
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 32px;
+  letter-spacing: 1.875px;
+}
+.winnerText {
+  margin-top: 62px;
+  font-weight: 700;
+  font-size: 56px;
+  color: white;
+  margin-bottom: 16px;
+}
+.again {
+  width: 220px;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  color: #3b4262;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 2.5px;
+}
+
+/* modal styles */
+.modal__container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.modal h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 32px;
+  color: #3b4262;
+  margin-top: 95px;
+  margin-bottom: 113px;
+}
+
+.modal button {
+  border: none;
+  background: transparent;
+  margin-top: 160px;
+}
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.rules-img {
+  width: 305px;
+  height: 271px;
+}
