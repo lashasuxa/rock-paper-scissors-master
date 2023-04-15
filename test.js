@@ -119,16 +119,19 @@ function generateRandomChoice() {
   // Compare the user's choice and the AI's choice and display the winner
   if (yourChoice.querySelector(".choice").classList.contains("paper")) {
     if (aiChoice.classList.contains("scissors")) {
+      console.log("containes choice");
       winnerText.innerText = "You lose!";
-    } else if (aiChoice.classList.contains("rock")) {
+    } else if (aiChoice.querySelector(".choice").classList.contains("rock")) {
       winnerText.innerText = "You win!";
     } else {
       winnerText.innerText = "It's a tie!";
     }
   } else if (yourChoice.querySelector(".choice").classList.contains("rock")) {
-    if (aiChoice.classList.contains("paper")) {
+    if (aiChoice.querySelector(".choice").classList.contains("paper")) {
       winnerText.innerText = "You lose!";
-    } else if (aiChoice.classList.contains("scissors")) {
+    } else if (
+      aiChoice.querySelector(".choice").classList.contains("scissors")
+    ) {
       winnerText.innerText = "You win!";
     } else {
       winnerText.innerText = "It's a tie!";
@@ -136,9 +139,9 @@ function generateRandomChoice() {
   } else if (
     yourChoice.querySelector(".choice").classList.contains("scissors")
   ) {
-    if (aiChoice.classList.contains("rock")) {
+    if (aiChoice.querySelector(".choice").classList.contains("rock")) {
       winnerText.innerText = "You lose!";
-    } else if (aiChoice.classList.contains("paper")) {
+    } else if (aiChoice.querySelector(".choice").classList.contains("paper")) {
       winnerText.innerText = "You win!";
     } else {
       winnerText.innerText = "It's a tie!";

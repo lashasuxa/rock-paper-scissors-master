@@ -13,6 +13,7 @@ const resultDiv = document.querySelector(".result");
 const againBtn = document.querySelector(".again");
 const yourChoice = document.querySelector(".your-choice");
 const winnerText = document.querySelector(".winnerText");
+const scoreTracker = document.querySelector(".scoreTracker");
 
 againBtn.addEventListener("click", () => {
   yourChoice.innerHTML = ``;
@@ -27,12 +28,6 @@ closeBtn.addEventListener("click", () => {
   modalDiv.style.display = "none";
 });
 
-// for (gameBtn of gameBtns) {
-//   gameBtn.addEventListener("click", (event) => {
-//     console.log(event.target);
-//   });
-// }
-
 paperBtn.addEventListener("click", () => {
   gameDiv.style.display = "none";
   resultDiv.style.display = "flex";
@@ -44,9 +39,6 @@ paperBtn.addEventListener("click", () => {
       </button>
       <p class="yourPick">YOUR PICKED</p>
     `;
-  if (yourChoice.querySelector(".choice").classList.contains("gogo")) {
-    console.log("Your choice contains the class 'paper'!");
-  }
 
   activateRandomChoiceGenerator(); // Call this function to generate AI choice after 3 seconds
 });
@@ -88,7 +80,7 @@ function activateRandomChoiceGenerator() {
     const choice = generateRandomChoice();
     // Do something with the generated choice, such as append it to the DOM
     console.log(choice);
-  }, 3000);
+  }, 1000);
 }
 
 function generateRandomChoice() {
@@ -105,6 +97,13 @@ function generateRandomChoice() {
   // Create a new div element to hold the AI's choice
   const aiChoice = document.createElement("div");
   aiChoice.classList.add("choice");
+  if (imageSources[randomIndex] === "./images/icon-paper.svg") {
+    aiChoice.classList.add("paper");
+  } else if (imageSources[randomIndex] === "./images/icon-scissors.svg") {
+    aiChoice.classList.add("scissors");
+  } else if (imageSources[randomIndex] === "./images/icon-rock.svg") {
+    aiChoice.classList.add("rock");
+  }
 
   // Create a new image element and set its source to the chosen image
   const choiceImg = document.createElement("img");
@@ -120,6 +119,7 @@ function generateRandomChoice() {
   if (yourChoice.querySelector(".choice").classList.contains("paper")) {
     if (aiChoice.classList.contains("scissors")) {
       winnerText.innerText = "You lose!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) - 1;
     } else if (aiChoice.classList.contains("rock")) {
       winnerText.innerText = "You win!";
     } else {
@@ -128,20 +128,26 @@ function generateRandomChoice() {
   } else if (yourChoice.querySelector(".choice").classList.contains("rock")) {
     if (aiChoice.classList.contains("paper")) {
       winnerText.innerText = "You lose!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) - 1;
     } else if (aiChoice.classList.contains("scissors")) {
       winnerText.innerText = "You win!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) + 1;
     } else {
       winnerText.innerText = "It's a tie!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML);
     }
   } else if (
     yourChoice.querySelector(".choice").classList.contains("scissors")
   ) {
     if (aiChoice.classList.contains("rock")) {
       winnerText.innerText = "You lose!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) - 1;
     } else if (aiChoice.classList.contains("paper")) {
       winnerText.innerText = "You win!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) + 1;
     } else {
       winnerText.innerText = "It's a tie!";
+      scoreTracker.innerHTML = parseInt(scoreTracker.innerHTML) - 1;
     }
   }
 
