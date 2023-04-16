@@ -408,4 +408,7 @@ body {
     top: 23%;
     right: 39%;
   }
+  button :hover {
+    cursor: pointer;
+  }
 }
