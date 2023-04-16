@@ -4,18 +4,6 @@
   margin: 0;
   padding: 0;
 }
-:root {
-  --Background: radial-gradient(
-    134.34% 134.34% at 50% 0%,
-    #1f3757 0%,
-    #131537 100%
-  );
-  --SofRed: hsl(345, 95%, 68%);
-  --White: hsl(0, 0%, 100%);
-  --DarkDesaturatedBlue: hsl(236, 21%, 26%);
-  --VeryDarkBlue: hsl(235, 16%, 14%);
-  --MostlyBlackBlue: hsl(234, 17%, 12%);
-}
 
 body {
   font-family: "Barlow Semi Condensed", sans-serif;
@@ -26,6 +14,7 @@ body {
   );
   height: 100vh;
   width: 100vw;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +26,8 @@ body {
 }
 
 .top {
-  width: 311px;
+  width: 83%;
+  max-width: 700px;
   height: 96px;
   border: 3px solid rgba(255, 255, 255, 0.289199);
   border-radius: 5px;
@@ -50,7 +40,8 @@ body {
   margin-top: 50px;
 }
 .scoreRect {
-  width: 80px;
+  width: 25.7%;
+  max-width: 150px;
   height: 72px;
   background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
@@ -72,27 +63,17 @@ body {
   font-size: 40px;
   color: #565468;
 }
-.game {
-  text-align: center;
-  gap: 10px;
-}
-
-/* experiment starts here */
 
 .game {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
+  text-align: center;
+  gap: 70px;
   background-image: url(./images/bg-triangle.svg);
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.game-btn {
-  margin: 10px;
-  padding: 0;
 }
 
 .choice {
@@ -105,9 +86,6 @@ body {
   box-shadow: 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.choice img {
-  width: 60px;
-}
 .game-btn {
   border-radius: 50%;
 }
@@ -122,8 +100,6 @@ body {
 .rock {
   border: 15px solid #db2e4d;
 }
-/* experiment ends here */
-
 .rules {
   border: 1px solid #ffffff;
   background: transparent;
@@ -132,10 +108,9 @@ body {
   width: 128px;
   height: 40px;
   text-align: center;
-  position: absolute;
-  bottom: 25px;
+  position: fixed;
+  bottom: 15px;
 }
-
 .choice {
   width: 130px;
   height: 130px;
@@ -155,16 +130,12 @@ body {
   height: 110px;
   background: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
-  margin-bottom: 28px;
 }
 .result {
-  position: absolute;
-  top: 251px;
-  left: 13px;
-  /* background-color: #3b4262; */
   height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   display: none;
 }
@@ -172,7 +143,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* width: 100vw; */
+  gap: 58px;
 }
 .your-choice {
   display: flex;
@@ -192,6 +163,7 @@ body {
   font-size: 15px;
   line-height: 32px;
   letter-spacing: 1.875px;
+  margin-top: 17px;
 }
 .winnerText {
   margin-top: 62px;
@@ -201,6 +173,7 @@ body {
   margin-bottom: 16px;
 }
 .again {
+  display: none;
   width: 220px;
   height: 48px;
   border-radius: 8px;
@@ -219,6 +192,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+  border-radius: 8px;
 }
 .modal h2 {
   text-align: center;
@@ -232,7 +206,7 @@ body {
 .modal button {
   border: none;
   background: transparent;
-  margin-top: 160px;
+  margin-top: 150px;
 }
 .modal {
   display: none;
@@ -244,4 +218,194 @@ body {
 .rules-img {
   width: 305px;
   height: 271px;
+}
+.youPick {
+  text-align: center;
+}
+.aiPick {
+  margin-top: 25px;
+}
+
+/* responsive design */
+@media screen and (min-width: 540px) {
+  .top {
+    margin-bottom: 40px;
+  }
+  .logo {
+    width: 159px;
+    height: 96px;
+  }
+  .top {
+    height: 150px;
+  }
+  .scoreRect {
+    height: 114px;
+  }
+  .scoreRect span {
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 2.5px;
+  }
+  .scoreRect p {
+    font-size: 64px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 415px;
+  }
+
+  .modal__container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .modal h2 {
+    margin: 0;
+    position: fixed;
+    top: 32px;
+    left: 32px;
+  }
+  .modal button {
+    margin: 0;
+    position: fixed;
+    top: 44px;
+    right: 32px;
+  }
+  .rules-img {
+    position: fixed;
+    top: 112px;
+    right: 50px;
+  }
+  /* here starts result div styling */
+  .result {
+    width: 940px;
+  }
+  .resultChoices {
+    width: 940px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .game-btn {
+    border-radius: 50%;
+    width: 198px;
+    height: 198px;
+  }
+  .choice {
+    width: 198px;
+    height: 198px;
+  }
+  .paper img {
+    width: 67px;
+    height: 80px;
+  }
+  .scissors img {
+    width: 54px;
+    height: 80px;
+  }
+  .rock img {
+    width: 64px;
+    height: 64px;
+  }
+  .paper {
+    border: 23px solid #4664f4;
+  }
+
+  .scissors {
+    border: 23px solid #eb9f0e;
+  }
+
+  .rock {
+    border: 23px solid #db2e4d;
+  }
+  .game {
+    position: relative;
+    width: 531px;
+    height: 531px;
+    margin: 0 auto;
+  }
+
+  .game-btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+
+  .choice {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item-1 {
+    top: 25%;
+    left: 25%;
+  }
+
+  .item-2 {
+    top: 25%;
+    left: 75%;
+  }
+
+  .item-3 {
+    top: 65%;
+    left: 50%;
+  }
+  /* rules sticked to the right bottom corner */
+  .rules {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+  }
+
+  /* positioning result div */
+
+  .resultChoices {
+    position: relative;
+    width: 657px;
+    height: 400px;
+    margin: 0 auto;
+  }
+  #createdYourChoice {
+    top: 90%;
+    left: 20%;
+  }
+  .youPick {
+    position: absolute;
+    top: 10%;
+    left: 12%;
+  }
+
+  .aiPick {
+    margin-bottom: 25px;
+  }
+  .ai-choice {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    height: 196px;
+    width: 196px;
+    position: absolute;
+    top: 47%;
+    left: 65%;
+  }
+  .resultChoices p:nth-of-type(2) {
+    margin-bottom: 15px;
+  }
+  .transparentCircle {
+    display: none;
+  }
+  #theHouseParagraph {
+    position: fixed;
+    top: 34.3%;
+    right: 30%;
+  }
 }
