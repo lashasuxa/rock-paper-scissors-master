@@ -1,3 +1,4 @@
+"use strict";
 const result = document.querySelector(".result");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
